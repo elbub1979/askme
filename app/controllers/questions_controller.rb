@@ -37,13 +37,14 @@ class QuestionsController < ApplicationController
 
   def hide
     @question.update_attribute(:hidden, true)
-    redirect_to questions_path
+
+    redirect_to question_path(@question)
   end
 
   private
 
   def question_params
-    params.require(:question).permit(:body, :user_id, :hidden)
+    params.require(:question).permit(:body, :user_id)
   end
 
   def set_question
