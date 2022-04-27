@@ -7,10 +7,6 @@ class QuestionsController < ApplicationController
     redirect_to question_path(question)
   end
 
-  def show_hidden
-    @questions = Question.where(hidden: true)
-  end
-
   def update
     @question.update(question_params)
 
